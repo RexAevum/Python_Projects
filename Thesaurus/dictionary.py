@@ -1,9 +1,9 @@
 # Need to import json to be able to access the info in the db
 import json
-filePath = "db/data.json"
+filePath = "Thesaurus/db/data.json"
 # Can access all of the info in the json file - will hold the dictionary
 data = json.load(open(filePath))
-print(len(data.keys()))
+#print(len(data.keys()))
 
 # Need to import the difflib - used to compare strings and can be used to find simmilar strings to the one provided
 # This will be used to suggest other "real" words to the user in case they have entered a word incorrectly 
