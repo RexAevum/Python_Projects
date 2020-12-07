@@ -26,7 +26,7 @@ def printOther (words):
 # Main loop, that will keep asking user for input until user chooses to exit
 while doLoop: 
     # get specific data based on input key, set it to lower case to find a match in data
-    word = input(">Find definition of the word (type '\quit' to exit): ")
+    word = input(r">Find definition of the word (type '\quit' to exit): ")
     foundDef = ""
     # find the word in the data(db) and print it
     if word == r"\quit" :
