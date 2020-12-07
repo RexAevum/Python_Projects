@@ -34,7 +34,7 @@ while doLoop:
     elif word.lower() in data: # First need to check if the entered word is in the dic
         # Get the definition from the jason file
         foundDef = data[word.lower()]
-    elif word.upper() in data: # accounting for acronims
+    elif word.upper() in data: # accounting for words like NATO
         foundDef = data[word.upper()]
     elif word.title() in data: # accounting for titles
         foundDef = data[word.title()]
