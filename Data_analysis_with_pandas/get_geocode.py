@@ -4,7 +4,7 @@ from geopy.geocoders import ArcGIS
 nom = ArcGIS()
 
 # get the info from a db
-df = pandas.read_csv("data\supermarkets.csv")
+df = pandas.read_csv(r"data\supermarkets.csv")
 
 # Create/update a new column that will hold all of the data the geocoder needs to find location
 df["Full_Address"] = df["Address"] + ", " + df["City"] + ", " + df["State"] + ", " + df["Country"]
