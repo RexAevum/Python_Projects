@@ -18,7 +18,7 @@ df5 = pandas.read_csv(r"data\supermarkets-semi-colons.txt", sep=";")
 
 # Read from a file that does not have a header line
 # If the file has no header line, to make sure the table is correct you need to state that the header = None
-df6 = pandas.read_csv("data\supermarkets-commas.txt", header=None)
+df6 = pandas.read_csv(r"data\supermarkets-commas.txt", header=None)
 # to set the names of columbs
 df6.columns = ["ID", "Address", "City", "State", "County", "Names", "Employee NR"]
 
