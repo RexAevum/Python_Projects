@@ -1,6 +1,9 @@
 """
 Program will connect to a remote db and access a dictionary table. The user will enter a word and the app will
 return defenitions for the word or offer simmilar words in case the word is not correct
+
+Rolans Apinis
+Git: Rex Aevum
 """
 # other imports
 from difflib import get_close_matches
