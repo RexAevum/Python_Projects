@@ -1,0 +1,25 @@
+Tech used:
+- virtualenv
++ script to install: pip install virtualenv
+
+!!! Need to create a virtual enviornment before you start developing the website using a fresh copy of python !!!
+
+To create a virtual enviornment:
+
+1) create a super-folder for the folder containing the website
+    - the virtual enviornment needs to be at the same level/depth as the website folder
+
+2) Navigate to the folder the contains the website folder
+
+3) Run script: "python -m venv {x}"
+    - where x == folder name for virtual enviornment folder
+
+4) Once the enviornment is set up, include the filepath "x/Scripts/" then run the script you need
+    - ex --> virtual/Scripts/
+    - where x == folder name for virtual enviornment folder
+
+5) First need to install the remote libraries, just like you would on your own computer
+    - ex the library used to set up the website --> PS..> virtual/Scripts/pip install flask
+
+6) After that run the python script that serves as the main of your website with the corect folder name as the file path
+    - ex --> virtual/Scripts/python Basic_personal_website/index.py
