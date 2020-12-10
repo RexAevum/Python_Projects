@@ -1,0 +1,16 @@
+<!--Once this page is called it will send the html code to the 
+extended file (in this case layout.html) where it will subbed into the 
+  <div class="container">
+      {%block content%} -> whick block to send it to
+      {%endblock%} -> designates where the block will end
+  </div>
+
+-->
+{%extends "layout.html"%}
+{%block content%} <!-- this section has to match the block in the extended file, that's how it knows where to 
+put the code-->
+    <div class="about">
+      <h1>About page</h1>
+      <p>This webpage will shou you about details</p>
+    </div>
+{%endblock%}
