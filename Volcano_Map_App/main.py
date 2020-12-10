@@ -68,7 +68,7 @@ fileJson = r"data\world.json"
 # to add .read() at the end of the method call to get string --> folium.GeoJson().read()
 featureGroupOfPopulation.add_child(folium.GeoJson(data=open(fileJson, 'r', encoding='utf-8-sig').read(),
 style_function=lambda x: {'fillColor' : 'blue' if x['properties']['POP2005'] < 1000000 else ('green' if 1000000 <= x['properties']['POP2005'] < 10000000 
-else 'red')})) 
+else ('orange' if 10000000 <= x['properties']['POP2005'] < 100000000 else 'red'))})) 
 #FIXME - Look up more info on lambda functions
 
 # add the feature group to
