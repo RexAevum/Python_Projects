@@ -10,7 +10,7 @@ body {
  */
 
 header {
-  background-color: #DFB887;
+  background-color: #1132ee;
   height: 35px;
   width: 100%;
   opacity: 1.0;
@@ -20,7 +20,7 @@ header {
 header h1.logo {
   margin: 0;
   font-size: 1.7em;
-  color: #fff;
+  color: rgb(255, 255, 255);
   text-transform: uppercase;
   float: left;
 }
@@ -85,6 +85,6 @@ h3 {
 }
 
 .menu li a {
-  color: #444;
+  color: rgb(200, 0, 0);
   text-decoration: none;
 }
