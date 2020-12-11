@@ -40,3 +40,18 @@ Deploying to heroku:
                 - git config --global user.email "rolans2k@gmail.com"
             2) git config --global user.name "{user_name you want}"
                 - git config --global user.name "rexaevum"
+
+9) If there are any issues, try runing heroku logs to get a detailed description of what happened
+    - heroku logs
+------------------------------------------------------------------------------------------------------
+Updating the info on the server:
+
+Connect to the heroku service/repo
+    1) Log into heroku: heroku login
+    2) heroku info --> checkto make sure the app is visable
+    3) heroku git:remote --app rexaevum
+
+Then do: add, commit and push
+    1) git add .
+    2) git commit -m "{Note}"
+    3) git push heroku master
