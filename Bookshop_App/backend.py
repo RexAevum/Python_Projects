@@ -12,9 +12,17 @@ def connect():
 def insert(title, author, year, isbn):
     conn = sqlite3.connect(db)
     cur = conn.cursor()
-    cur.execute("INSERT INTO Books VALUES (NULL, ?, ?, ?, ?)", (title, author, year, isbn))
-    conn.commit()
-    conn.close()
+    try:
+        cur.execute("INSERT INTO Books VALUES (NULL, ?, ?, ?, ?)", (title, author, year, isbn))
+        conn.commit()
+        conn.close()
+        return True
+    except:
+        print("Insert failed")
+        conn.commit()
+        conn.close()
+        return False
+
 
 def update(id, title, author, year, isbn):
     conn = sqlite3.connect(db)
@@ -22,6 +30,7 @@ def update(id, title, author, year, isbn):
     cur.execute("UPDATE Books SET title=?, author=?, year=?, isbn=? WHERE id=?", (title, author, year, isbn, id))
     conn.commit()
     conn.close()
+    return True
 
 def delete(id):
     con = sqlite3.connect(db)
@@ -30,6 +39,7 @@ def delete(id):
     cur.execute("DELETE FROM Books WHERE id=?", (id,))
     con.commit()
     con.close()
+    return True
 
 # Function to search for item in db based on one or more columns
 # When using OR all elements have to hav a value or you will get an error so need to set a default value in the search .execute()
@@ -56,5 +66,5 @@ connect()
 # Testing during coding
 #insert("Hello World", "John Apple", 1993, 4515464)
 #insert("Harry Potter", "J. K. Rowling", 2000, 451546445)
-print(view_all())
-print(search(title="Hello World"))
+#print(view_all())
+#print(search(title="Hello World"))
