@@ -24,21 +24,21 @@ Wraper functions
 """
 def get_selected_row(event):
     try:
-    # Get the index of currently selected item in the list box
-    index = resultList.curselection() # return format is a tuple (x, )
-    # To prevent an error due to not having an event passed in, meaning so that the method 
-    # does not need to be called in code, just access the global variable
-    global itemResult 
-    itemResult = resultList.get(index[0])
-    # Update the entrie fields with info from selected item in Listbox
-    nameEntry.delete(0, END)
-    nameEntry.insert(END, itemResult[1])
-    authorEntry.delete(0, END)
-    authorEntry.insert(END, itemResult[2])
-    yearEntry.delete(0, END)
-    yearEntry.insert(END, itemResult[3])
-    isbnEntry.delete(0, END)
-    isbnEntry.insert(END, itemResult[4])
+        # Get the index of currently selected item in the list box
+        index = resultList.curselection() # return format is a tuple (x, )
+        # To prevent an error due to not having an event passed in, meaning so that the method 
+        # does not need to be called in code, just access the global variable
+        global itemResult 
+        itemResult = resultList.get(index[0])
+        # Update the entrie fields with info from selected item in Listbox
+        nameEntry.delete(0, END)
+        nameEntry.insert(END, itemResult[1])
+        authorEntry.delete(0, END)
+        authorEntry.insert(END, itemResult[2])
+        yearEntry.delete(0, END)
+        yearEntry.insert(END, itemResult[3])
+        isbnEntry.delete(0, END)
+        isbnEntry.insert(END, itemResult[4])
     except IndexError:
         pass
 
