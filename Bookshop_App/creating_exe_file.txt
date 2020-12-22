@@ -3,6 +3,9 @@ Need to install pyinstaller to be able to create an executable file
 1) pyinstaller --onefile --windowed {main script name}
     a) --onefile --> will create only the executable file(.exe) without all the aditional files used in the program
     b) --windowed --> will prevent a terminal being opened once the exe file is ran
+        - if there are any errors you will not be able to see them if --windowed/-F wiil not let you see the errors, the exe     
+        will just fail.
+        - To see error printout, need to run exe file from cmd
 
 WARNING!!!
 If there is a hardcoded path, that path will casue the exe file to error -> to fix this issue:
