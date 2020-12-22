@@ -15,10 +15,9 @@ User will be able to:
     close program
 
  """
-from tkinter import *
+from tkinter import Entry, Label, Listbox, Button, Scrollbar, StringVar, END, Tk
 import backend
 
-db_status = None
 """
 Wraper functions 
 """
@@ -61,7 +60,6 @@ def search():
 
 def insert():
     status = backend.insert(nameValue.get(), authorValue.get(), yearValue.get(), isbnValue.get())
-    db_status = status
     if status:
         view_all()
         nameEntry.delete(0, END)
@@ -115,8 +113,6 @@ yearLabel.grid(row= 2, column=0)
 isbnLabel = Label(window, text="ISBN:")
 isbnLabel.grid(row= 3, column=0)
 
-statusLabel = Label(window, textvariable=db_status)
-statusLabel.grid(row=5, column=0, columnspan=4)
 
 # Buttons
 viewAllButton = Button(window, text="View All", command=view_all, width=22)
