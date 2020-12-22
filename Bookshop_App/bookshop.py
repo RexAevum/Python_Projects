@@ -96,6 +96,8 @@ def delete():
         print("Item of index {} has been deleted".format(itemResult[0])) # For validation, user will not see
         view_all()
 
+def end():
+    exit()
 # create a window
 window = Tk(className=" Bookshop")
 
@@ -132,7 +134,7 @@ updateButton.grid(row= 3, column=2)
 deleteButton = Button(window, text="Delete", command=delete, width=11)
 deleteButton.grid(row= 2, column=3)
 
-closeButton = Button(window, text="Close", command=exit, width=11)
+closeButton = Button(window, text="Close", command=end, width=11)
 closeButton.grid(row= 3, column=3)
 
 # Entry field
