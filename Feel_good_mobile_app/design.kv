@@ -10,9 +10,18 @@
             Label:
                 text: "User Login"
             TextInput:
+                id: userName
                 hint_text: "User Name"
             TextInput:
+                id: passWord
                 hint_text: "Password"
+            Button:
+                text: "Login"
+                on_press: root.login(root.ids.userName.text, root.ids.passWord.text)
+                #""" When using the on_press, the function needs to start with root.{function name}"""
+            Label:
+                id: loginFailed
+                text: ""
         GridLayout:
             cols: 2 # Default is 1 column
             Button:
@@ -38,9 +47,42 @@
             text: "Sign Up"
             on_press: root.add_user(root.ids.newUserName.text, root.ids.newPassword.text)
 
+<SignupScreenSuccess>:
+    GridLayout:
+        cols: 1
+        Label:
+            text: "Sign up Successful"
+        Button:
+            text: "Done"
+            on_press: root.back()
+
+<LoginScreenSuccess>:
+    GridLayout:
+        cols: 1
+        Button:
+            text: "Logout"
+            on_press: root.logout()
+        Label:
+            text: "How do you feel?"
+        TextInput:
+            id: userFeel
+            hint_text: "Enter an emotion: happy, sad, unloved .."
+        Button:
+            text: "I feel"
+            on_press: root.get_quote(root.ids.userFeel.text)
+        Label:
+            id: toInspire
+            text: ""
+
 <RootWidget>:
     LoginScreen:
         name: "login_screen"
     SignupScreen:
         name: "signup_screen"
+    SignupScreenSuccess:
+        name: "signup_screen_success"
+    LoginScreenSuccess:
+        name: "login_screen_success"
 
+
+ 
