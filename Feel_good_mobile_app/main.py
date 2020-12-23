@@ -70,6 +70,8 @@ class LoginScreenSuccess(Screen):
                 quotes = file.readlines()
             # get a random quote from the list of quotes    
             self.ids.toInspire.text = random.choice(quotes)
+        else:
+            self.ids.toInspire.text = "Sorry, have nothing for this. Please try another emotion."
 # RootWidget is after the App in the hierarchy
 class RootWidget(ScreenManager):
     pass

@@ -1,4 +1,4 @@
-"""
+r"""
 The program will allow user to enter any word and it will compare the entered word with the words in the imported 
 dictionary of words from a .json file. If the user enters a valid word, the program will return all available definitions to the user,
 however if the word is not found due to a spelling error the program will offer alternatives to the user input and the user 
