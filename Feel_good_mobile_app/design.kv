@@ -1,0 +1,46 @@
+#:kivy 1.0
+# Define login screen
+# Each item in <> is a rool
+# class LoginScreen(Screen)
+<LoginScreen>:
+    GridLayout:
+        cols: 1 # Need to have cols specified or gridlayout will place all items in one location
+        GridLayout:
+            cols: 1 
+            Label:
+                text: "User Login"
+            TextInput:
+                hint_text: "User Name"
+            TextInput:
+                hint_text: "Password"
+        GridLayout:
+            cols: 2 # Default is 1 column
+            Button:
+                text: "Forgot Password"
+            Button:
+                text: "Sign Up"
+                on_press: root.sign_up() # calls function on press
+                # the root above is the <LoginScreen>
+# Specify main screen --> is the ScreenManager
+# class RootWidget(ScreenManager)
+<SignupScreen>:
+    GridLayout:
+        cols: 1
+        Label:
+            text: "Sign up to feel better"
+        TextInput:
+            hint_text: "New Username"
+            id: newUserName
+        TextInput:
+            hint_text: "New Password"
+            id: newPassword
+        Button:
+            text: "Sign Up"
+            on_press: root.add_user(root.ids.newUserName.text, root.ids.newPassword.text)
+
+<RootWidget>:
+    LoginScreen:
+        name: "login_screen"
+    SignupScreen:
+        name: "signup_screen"
+
