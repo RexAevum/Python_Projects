@@ -103,7 +103,7 @@
         cols: 1
         padding: 15, 15
         spacing: 20, 20
-        RelativeLayout:    
+        RelativeLayout:  
             ImageButton:
                 on_press: root.logout()
                 source: 'images\logout_hover.png' if self.hovered else 'images\logout_nothover.png'
@@ -165,6 +165,23 @@
                 text: "Go To Sign Up"
                 on_press: root.moveto_sighnup()
 
+<ChangedPasswordScreen>:
+    GridLayout:
+        cols: 1
+        padding: 15, 15
+        spacing: 20, 20
+        Label:
+            text: "Password Changed"
+            font_size: '27sp'
+        Button:
+            text: "Login"
+            on_press: root.status_update()
+            size_hint: 0.3, 0.7
+            pos_hint: {'center_x' : 0.5, 'center_y' : 0.6}
+            background_color: 1, 1, 1, 0
+    
+            
+
 <RootWidget>:
     LoginScreen:
         name: "login_screen"
@@ -176,6 +193,8 @@
         name: "login_screen_success"
     ForgotPasswordScreen:
         name: 'forgot_password'
+    ChangedPasswordScreen:
+        name: 'new_pass'
 
 
  

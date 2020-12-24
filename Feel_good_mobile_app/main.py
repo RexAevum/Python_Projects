@@ -21,6 +21,9 @@ class LoginScreen(Screen): # Inhereting the Screen object
         self.manager.current = "signup_screen" # Need to match the .kv file root widget name
     def forgot(self):
         self.manager.current = 'forgot_password'
+        self.ids.userName.text = ""
+        self.ids.passWord.text = ""
+        self.ids.loginFailed.text = ""
 
     def login(self, user, passw):
         with open(filePath) as file:
@@ -29,6 +32,8 @@ class LoginScreen(Screen): # Inhereting the Screen object
                 if user in data and data[user]['password'] == passw: # Contains
                     self.manager.transition.direction = 'left'
                     self.manager.current = "login_screen_success"
+                    self.ids.userName.text = ""
+                    self.ids.passWord.text = ""
                 else:
                     self.ids.loginFailed.text = "Incorrect User Info"
             except json.decoder.JSONDecodeError:
@@ -73,6 +78,8 @@ class LoginScreenSuccess(Screen):
     def logout(self):
         self.manager.transition.direction = "right"
         self.manager.current = "login_screen"
+        self.ids.userFeel.text = ""
+        self.ids.toInspire.text = ""
     
     def get_quote(self, feeling):
         feeling = feeling.lower()
@@ -89,22 +96,25 @@ class LoginScreenSuccess(Screen):
         else:
             self.ids.toInspire.text = "Sorry, have nothing for this. Please try another emotion."
 
+    def clear(self):
+        self.ids.userFeel.text = ""
+
 class ForgotPasswordScreen(Screen):
     def change_password(self, username, pass1, pass2):
         print((username, pass1, pass2))
         with open(filePath, 'r') as file:
+            # FIXME -> if the file is empty, .load will throw an error
             data = json.load(file)
             if username in data:
                 if pass1 == pass2:
                     data[username]['password'] = pass1
                     self.write_json(data)
-                    self.ids.password_status.text = "Password Changed"
-                    time.sleep(2)
-                    self.manager.current = 'login_screen'
+                    self.manager.current = 'new_pass'
                 else:
                     self.ids.password_status.text = 'Passwords did not match'
             else:
                 self.ids.password_status.text = 'User not found. Make sure to sign up first'
+
         
     def write_json(self, data):
         with open(filePath, 'w') as file:
@@ -115,6 +125,10 @@ class ForgotPasswordScreen(Screen):
 
     def moveto_sighnup(self):
         self.manager.current = 'signup_screen'
+
+class ChangedPasswordScreen(Screen):
+    def status_update(self):    
+        self.manager.current = 'login_screen'
 
 
 # Creating an interactive button as an image
