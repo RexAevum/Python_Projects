@@ -2,7 +2,7 @@
     This app will allow users to get information from a specific realestate website
     and combine the information into a single file
 """
-import pandas, requests, time, deprication
+import pandas, requests, time
 from bs4 import BeautifulSoup
 
 """ Get the number of pages/object on the site by using the url """
@@ -18,7 +18,6 @@ parser = BeautifulSoup(c, 'html.parser')
 itemsPerPage = int(parser.find('div', {'class' : 'PaginationLimit'}).find('div', {'class' : 'selector smallSelector'})
  .find('span').text)
 itemCount = (len(parser.find_all('div', {'class' : 'PagerFull'}))+1) * itemsPerPage
-#print(str(itemCount) + ' ' + str(itemsPerPage))
 
 # Store data in a list to be added to a data frame
 allOffers = []
@@ -89,7 +88,6 @@ for num in range(0, itemCount, itemsPerPage):
             for featureGroup, featureName in zip(feature.find_all('span', {'class' : 'featureGroup'}),
             feature.find_all('span', {'class' : 'featureName'})):
                 # will need to add to object before writting to file
-                ###print(featureGroup.text, featureName.text)
                 # get lot size
                 if 'Lot Size' in featureGroup.text:
                     lotSize = featureName.text
@@ -101,7 +99,6 @@ for num in range(0, itemCount, itemsPerPage):
         currentLotInfoDict["Features"] = otherFeatures
         # Add to offers list to later be added to a data frame
         allOffers.append(currentLotInfoDict)
-        print(allOffers)
 
         '''
         # Print for testing
@@ -124,5 +121,4 @@ df = pandas.DataFrame(allOffers)
     rather than trying to create a data frame and later add to it
 """
 df.to_csv('available_listings.csv')
-#print(df)
     
