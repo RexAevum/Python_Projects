@@ -7,14 +7,17 @@
     </head>
     <body>
         <div class='container'>
-            <h1>Collecting info</h1>
-            <h3>Please enter the requested information to get the info on average height and age</h3>
+            <h1>Age And Height Survey</h1>
+            <h3>Please Enter The Requested Information To Get The Info On Average Height And Age</h3>
             <form action="{{url_for('success')}}" method="POST">
                 <input title="Enter email" placeholder="Enter your email address" type="email" name="userEmail" required> <br>
                 <input title="Enter your height in cm" placeholder="Enter your height in cm" type="number" min="15" max="300" name="userHeight" required> <br>
                 <input title="Enter your age" placeholder="Enter your age in full years" type="number" min="0" max="150" name="userAge" required> <br>
                 <button type="submit">Submint</button>
             </form>
+            <div class='message'>
+                {{text | safe}}
+            </div>
         </div>
     </body>
 </html>
