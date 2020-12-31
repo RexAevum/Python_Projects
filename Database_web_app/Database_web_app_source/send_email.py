@@ -7,8 +7,8 @@ def send_email(email, height, age, avgHeight, avgAge, participants):
     to_email = email
     
     # convert to inches as well
-    inches = round(height/2.54, 1)
-    avgInches = round(avgHeight/2,54, 1) 
+    inches = round(float(height)/2.54, 1)
+    avgInches = round(float(avgHeight)/2.54, 1) 
 
     subject = 'Data'
     message = "Your height is <strong>{} cm ({} in)</strong> and age is <strong>{}</strong>. ".format(height, inches, age)

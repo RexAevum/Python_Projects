@@ -1,0 +1,53 @@
+1) Create a new app on heroku --> getresumerex
+
+2) Create a db on heroku
+    - herroku addons:create {name of addon}:{type of database} --app {name of app on heroku}
+    --> heroku addons:create heroku-postgresql:hobby-dev --app getresumerex
+
+3) Get URI for the databse by running command
+    - heroku config --app {app name}
+    --> heroku config --app getresumerex
+
+4) After running last command, heroku will give database_url, just copy that into the code
+    - 
+    --> postgres://tsebefzqhmwuid:e8908ecc5b419e4d6cffdc77bd27fe5426b192ce3bf038741363e2f1268c0057@ec2-52-203-182-92.compute-1.amazonaws.com:5432/da2po38ucb5m9c
+
+5) At the end of the generated url, add "?sslmode=require"
+    - this is used to make sure i am able to access the database through the command line
+        ?) Will use cmd to add the table to the database
+    --> postgres://tsebefzqhmwuid:e8908ecc5b419e4d6cffdc77bd27fe5426b192ce3bf038741363e2f1268c0057@ec2-52-203-182-92.compute-1.amazonaws.com:5432/da2po38ucb5m9c?sslmode=require
+
+6) Make sure gunicorn is installed in your enviornment
+    - needed to be able to run on heroku
+
+7) Create the necessary files for heroku in the project folder(where main is):
+    1) requirements.txt --> List of dependencies that are needed for the website to work, so that heroku can install it 
+    automaticaly
+        - Pipe into a file --> ../virtual(or whatever the virtual enviornemnt is called)/Scripts/pip freeze > requirements.txt
+
+    2) Procfile --> Telling what web server to user to run the app
+        - cannot have extension (ex. .txt)
+        - file should contain the following:
+            web: gunicorn {name of main script}:{name of the variable that holds the Flask(__name__) object}
+            ex. ==> web: gunicorn index:app
+
+    3) runtime.txt --> you specify which version of python should be ran on the server
+        - python-3.9.0
+
+8) Additional file needs to be created for the db --> .gitignore
+    - on windows it will not let you create a file without a name so need to use cmd (mac and linux is fine)
+    ?) used to list files and folder that should NOT be uploaded to heroku (ex. the virtual enviornemnt)
+    --> notepad .gitignore
+
+9) Need to create the data table on heroku for me to be able to store data in db using command line
+    - need to run python on the server/heroku using the command line
+    - heroku run {language}
+    --> heroku run python
+
+!) Can run command line on the linux server using following command and execute linux commands
+    --> herku run bash
+    To see whats in a file ->cat {file name.file type}
+
+10) Create table
+    1) from {name given to the Flask(__name__) variable} import {db variable that SQLAlchemy(app) is assigned to}} 
+    --> from app import db
