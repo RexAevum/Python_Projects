@@ -2,7 +2,9 @@
 virtualenv - virtual enviornment 
 """
 # Using flask to build a very basic website
-from flask import Flask, render_template
+from flask import Flask, render_template, send_file, redirect
+
+static_resume = 'static/docs/Rolans_Apinis_resume.pdf'
 
 # instantiate the Flask class to store the flask object
 app = Flask(__name__)
@@ -16,6 +18,11 @@ app = Flask(__name__)
 # otherwise you will get an error
 def home():
     return render_template("home.html")
+
+@app.route('/resume/')
+def send_resume():
+    return render_template('download_resume.html')
+
 
 @app.route('/about/')
 def about():

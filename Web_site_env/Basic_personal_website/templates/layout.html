@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title>Flask App First</title>
+      <title>Rolans Apinis' Website</title>
       <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
   </head>
   <body>
@@ -11,6 +11,7 @@
         <strong><nav>
           <ul class="menu">
             <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('send_resume') }}">My Resume</a></li>
             <li><a href="{{ url_for('stock') }}">Stock</a></li>
             <li><a href="{{ url_for('about') }}">About</a></li>
           </ul>

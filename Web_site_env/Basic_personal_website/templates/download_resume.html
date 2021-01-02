@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+    {%extends "layout.html"%} <!--First-->
+    {%block content%} <!-- Second -- this section has to match the block in the extended file, that's how it knows where to 
+    put the code-->
+        <div class="send_resume">
+            <h1>My Resume</h1>
+            <p></p>
+            <object data="{{ url_for('static', filename='docs/Rolans_Apinis_resume.pdf')}}" type="application/pdf" style="min-height:100vh;width:100%"></object>
+        </div>
+    {%endblock%}
