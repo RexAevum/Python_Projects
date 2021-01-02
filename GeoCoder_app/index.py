@@ -29,3 +29,5 @@ def download():
 
 if __name__ == "__main__":
     app.run(debug=True)
+    if os.path.exists('data/updated/*.csv'):
+        os.remove('data/updated/*.csv')
