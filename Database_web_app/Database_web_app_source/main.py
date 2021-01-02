@@ -21,6 +21,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URI
 db = SQLAlchemy(app)
 
 # create a table in the db
+# BUG - shows that db does not have members named Column and Integerr but app works
 class Data(db.Model):
     __tablename__ = 'user_info'
     id = db.Column(db.Integer, primary_key=True)
