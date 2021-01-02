@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <title>GeoCode</title>
+    <head>
+        <link href="../static/index.css" rel="stylesheet">
+
+    </head>
+    <body>
+        <div class='container_succ'>
+            <h1>GeoCode</h1>
+            <p>Bellow is the newly generated data frame that includes the geo latitude and longetude info</p>
+                <table>
+                    {% for frame in data%}
+                        {{atributes[loop.index]}}
+                        {{frame | safe}}
+                    {% endfor %}
+                </table>
+            <a href="{{ url_for ('download') }}"><button class='Download'>Download CSV File</button></a>
+            <a href="{{url_for ('geocode') }}"> <button>Upload Another File</button></a>
+        </div>
+    </body>
+</html>

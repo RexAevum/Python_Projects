@@ -1,0 +1,51 @@
+html, body{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+}
+
+.container_succ input{
+    width: 500px;
+    height: 30px;
+    margin-bottom: 10px;
+    padding: 20px;
+    transition: ease-in-out;
+}
+
+.container_succ button{
+    width: 100px auto;
+    height: 40px;
+    background-color: palegreen;
+    margin-top: 5px;
+}
+
+.container_succ p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color:gold;
+    margin-top: 50px;
+}
+
+.container_succ h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 60px;
+    color: ivory;
+    margin-top: 100px;
+}
+
+.container_succ { /* name of class in html file */
+    margin: 80 auto;
+    width: 100%;
+    height: 100%;
+    background-color:dimgrey;
+    color: floralwhite;
+    overflow: hidden; /* in the case where the text goes outside of a given container hidden will implement a scroll */
+    text-align: center;
+}
+
+.container_succ table{
+    width: auto;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}

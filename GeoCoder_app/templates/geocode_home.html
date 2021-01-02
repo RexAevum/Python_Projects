@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <title>GeoCode</title>
+    <head>
+        <link href="../static/index.css" rel="stylesheet">
+
+    </head>
+    <body>
+        <div class='container_succ'>
+            <h1>GeoCode</h1>
+            <p>Please upload your CSV file. The values containing adresses should be in a column named <i>address</i> or <i>Address</i></Address></p>
+            <form action="{{ url_for('return_df') }}" method="POST" enctype="multipart/form-data">
+                <input type="file" name="geoFile"> <br>
+                <button type="submit">Upload</button> 
+            </form>
+        </div>
+    </body>
+</html>

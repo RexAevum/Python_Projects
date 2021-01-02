@@ -46,8 +46,8 @@ def stock():
             value = 'Equal'
         return value
 
-    # file
-    f = r'result.html'
+    # file - for outputing to file (not needed now)
+    #f = r'result.html'
 
 
     # Gets data from supported sites (yahoo, etc)
